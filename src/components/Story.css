@@ -1,0 +1,76 @@
+.story-container {
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+/* Intro block styling - only layout and text, not background */
+.intro {
+  height: 100vh;
+  text-align: center;
+  padding-top: 20vh;
+  color: rgb(189, 39, 149);
+  text-shadow: 1px 1px 3px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.scroll-down {
+  font-size: 1.2rem;
+  animation: bounce 2s infinite;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.story-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  border-bottom: 1px solid #dddddd;
+  background: #fdfdfd;
+}
+
+.story-block img {
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+}
+
+.story-block p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #222;
+  color: white;
+}
+
+.cta-button {
+  background: #ff8c00;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: bold;
+}
