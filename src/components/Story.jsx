@@ -1,5 +1,7 @@
 import React from 'react';
 import './Story.css';
+import { Link } from 'react-router-dom';
+
 
 const stories = [
   {
@@ -59,8 +61,8 @@ function Story() {
         <p>
           Support local rights, ensure environmental transparency, and bring voices from the margins to the center of policy.
         </p>
-        <a href="/" className="cta-button">Submit a Grievance</a>
-      </section>
+        <Link to="/form" className="cta-button">Submit a Grievance</Link>
+       </section>
     </div>
   );
 }
