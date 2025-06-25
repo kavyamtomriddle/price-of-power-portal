@@ -34,6 +34,7 @@ const News = () => {
     borderRadius: '12px',
     maxWidth: '700px',
     textAlign: 'center',
+    overflow: 'hidden',
   };
 
   const buttonStyle = {
@@ -47,23 +48,49 @@ const News = () => {
     marginRight: '0.5rem',
   };
 
+  const marqueeWrapper = {
+    width: '100%',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    marginTop: '1rem',
+  };
+
+  const marqueeText = {
+    display: 'inline-block',
+    animation: 'scroll 18s linear infinite',
+    fontSize: '1.2rem',
+  };
+
+  const scrollKeyframes = `
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  `;
+
+  const combinedNews = newsItems[lang]
+    .map((item) => `${item.title} — ${item.date}`)
+    .join('  ⚫  '); // separator dot
+
   return (
-    <div style={backgroundStyle}>
-      <div style={cardStyle}>
-        <div>
-          <button onClick={() => setLang('en')} disabled={lang === 'en'} style={buttonStyle}>English</button>
-          <button onClick={() => setLang('hi')} disabled={lang === 'hi'} style={buttonStyle}>हिंदी</button>
+    <>
+      {/* Inject scroll keyframes */}
+      <style>{scrollKeyframes}</style>
+
+      <div style={backgroundStyle}>
+        <div style={cardStyle}>
+          <div>
+            <button onClick={() => setLang('en')} disabled={lang === 'en'} style={buttonStyle}>English</button>
+            <button onClick={() => setLang('hi')} disabled={lang === 'hi'} style={buttonStyle}>हिंदी</button>
+          </div>
+          <h1>{lang === 'en' ? 'News Bulletin' : 'समाचार बुलेटिन'}</h1>
+
+          <div style={marqueeWrapper}>
+            <div style={marqueeText}>{combinedNews}</div>
+          </div>
         </div>
-        <h1>{lang === 'en' ? 'News' : 'समाचार'}</h1>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          {newsItems[lang].map((item) => (
-            <li key={item.id} style={{ margin: '1rem 0', fontSize: '1.2rem' }}>
-              <strong>{item.title}</strong> — <em>{item.date}</em>
-            </li>
-          ))}
-        </ul>
       </div>
-    </div>
+    </>
   );
 };
 

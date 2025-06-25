@@ -29,7 +29,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <nav style={{ padding: '1rem', background: '#222', color: '#fff' }}>
-        <Link to="/" style={{ color: 'white', marginRight: '20px' }}>Story</Link>
+        <Link to="/" style={{ color: 'white', marginRight: '20px' }}>Our story</Link>
         <Link to="/form" style={{ color: 'white', marginRight: '20px' }}>Form</Link>
         <Link to="/history" style={{ color: 'white', marginRight: '20px' }}>History</Link>
         <Link to="/about" style={{ color: 'white', marginRight: '20px' }}>About UCIL</Link>
