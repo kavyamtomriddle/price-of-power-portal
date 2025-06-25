@@ -48,14 +48,15 @@ const Rights = () => {
     },
   };
 
-  useEffect(() => {
-    if (isMobile) {
-      const timer = setInterval(() => {
-        setIndex((prev) => (prev + 1) % content[lang].rights.length);
-      }, 4000);
-      return () => clearInterval(timer);
-    }
-  }, [lang]);
+useEffect(() => {
+  if (isMobile) {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % content[lang].rights.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }
+}, [lang, isMobile, content]);
+
 
   const backgroundStyle = {
     minHeight: '100vh',
