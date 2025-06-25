@@ -1,62 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+
+const content = {
+  en: {
+    title: 'Know Your Rights',
+    rights: [
+      {
+        text: 'Right to clean air and water — because survival is a right, not a privilege.',
+        image: '/images/rights/right1.jpg',
+        link: 'https://jaljeevanmission.gov.in/',
+      },
+      {
+        text: 'Right to information — so you are never left in the dark.',
+        image: '/images/rights/right2.jpg',
+        link: 'https://rti.gov.in/',
+      },
+      {
+        text: 'Right to health and safety — because every life deserves protection.',
+        image: '/images/rights/right3.jpg',
+        link: 'https://nhm.gov.in/',
+      },
+    ],
+  },
+  hi: {
+    title: 'अपने अधिकार जानिए',
+    rights: [
+      {
+        text: 'स्वच्छ हवा और पानी का अधिकार — क्योंकि जीना विशेषाधिकार नहीं, अधिकार है।',
+        image: '/images/rights/right1.jpg',
+        link: 'https://jaljeevanmission.gov.in/',
+      },
+      {
+        text: 'सूचना का अधिकार — ताकि आप अंधेरे में न रहें।',
+        image: '/images/rights/right2.jpg',
+        link: 'https://rti.gov.in/',
+      },
+      {
+        text: 'स्वास्थ्य और सुरक्षा का अधिकार — क्योंकि हर जीवन सुरक्षा के योग्य है।',
+        image: '/images/rights/right3.jpg',
+        link: 'https://nhm.gov.in/',
+      },
+    ],
+  },
+};
 
 const Rights = () => {
   const [lang, setLang] = useState('en');
-  const [index, setIndex] = useState(0);
-  const isMobile = window.innerWidth <= 768;
-
-  const content = {
-    en: {
-      title: 'Know Your Rights',
-      rights: [
-        {
-          text: 'Right to clean air and water — because survival is a right, not a privilege.',
-          image: '/images/rights/right1.jpg',
-          link: 'https://jaljeevanmission.gov.in/',
-        },
-        {
-          text: 'Right to information — so you are never left in the dark.',
-          image: '/images/rights/right2.jpg',
-          link: 'https://rti.gov.in/',
-        },
-        {
-          text: 'Right to health and safety — because every life deserves protection.',
-          image: '/images/rights/right3.jpg',
-          link: 'https://nhm.gov.in/',
-        },
-      ],
-    },
-    hi: {
-      title: 'अपने अधिकार जानिए',
-      rights: [
-        {
-          text: 'स्वच्छ हवा और पानी का अधिकार — क्योंकि जीना विशेषाधिकार नहीं, अधिकार है।',
-          image: '/images/rights/right1.jpg',
-          link: 'https://jaljeevanmission.gov.in/',
-        },
-        {
-          text: 'सूचना का अधिकार — ताकि आप अंधेरे में न रहें।',
-          image: '/images/rights/right2.jpg',
-          link: 'https://rti.gov.in/',
-        },
-        {
-          text: 'स्वास्थ्य और सुरक्षा का अधिकार — क्योंकि हर जीवन सुरक्षा के योग्य है।',
-          image: '/images/rights/right3.jpg',
-          link: 'https://nhm.gov.in/',
-        },
-      ],
-    },
-  };
-
-useEffect(() => {
-  if (isMobile) {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % content[lang].rights.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }
-}, [lang, isMobile, content]);
-
 
   const backgroundStyle = {
     minHeight: '100vh',
@@ -119,8 +107,6 @@ useEffect(() => {
     lineHeight: '1.4',
   };
 
-  const rightsToRender = isMobile ? [content[lang].rights[index]] : content[lang].rights;
-
   return (
     <div style={backgroundStyle}>
       <div style={cardStyle}>
@@ -130,7 +116,7 @@ useEffect(() => {
         </div>
         <h1>{content[lang].title}</h1>
 
-        {rightsToRender.map((right, i) => (
+        {content[lang].rights.map((right, i) => (
           <a
             key={i}
             href={right.link}
