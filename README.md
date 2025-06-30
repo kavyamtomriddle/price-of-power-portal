@@ -28,6 +28,10 @@ To:
 - **React Router** (Navigation)
 - **Manual CSS Styling** (for full control)
 - **Image Assets** in `/public/images/`
+## 📸 Video Walkthrough
+
+> 🎥 [Watch Full Demo](https://drive.google.com/file/d/1ZqD4eQwjTSIZPHlZQ1Nx7veWwpP8N9pT/view?usp=drive_link)  
+Covers website structure, interaction flow, and design logic.
 
 ## 🧩 Folder Structure
 
@@ -66,4 +70,6 @@ price-of-power-portal/
 4. Run the development server:
     npm start
     Visit http://localhost:3000
+
+
 
